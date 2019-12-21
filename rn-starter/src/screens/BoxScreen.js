@@ -16,26 +16,21 @@ const styles = StyleSheet.create({
 		height: 200,
 		borderWidth: 3,
 		borderColor: 'black',
-		// flexDirection: 'row',
-		// alignItems: 'center',
-		// justifyContent: 'space-around',
 	},
 	textOneStyle: {
 		borderWidth: 3,
 		borderColor: 'red',
-		flex: 4,
+		// ...StyleSheet.absoluteFillObject = position: 'absolute' + all four sides : 0 ex top: 0 etc..
+		...StyleSheet.absoluteFillObject,
 	},
 	textTwoStyle: {
 		borderWidth: 3,
 		borderColor: 'red',
-		flex: 2,
-		alignSelf: 'center',
 	},
 	textThreeStyle: {
 		borderWidth: 3,
 		borderColor: 'red',
-		flex: 4,
-		alignSelf: 'flex-end',
+		left: 30,
 	},
 });
 
