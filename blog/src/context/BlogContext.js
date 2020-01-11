@@ -26,13 +26,18 @@ const blogReducer = (state, action) => {
 const addBlogPost = dispatch => {
 	return (title, content, callback) => {
 		dispatch({ type: 'ADD_BLOG_POST', payload: { title, content } });
-		callback();
+		if (callback) {
+			callback;
+		}
 	};
 };
 
 const editBlogPost = dispatch => {
-	return (id, title, content) => {
+	return (id, title, content, callback) => {
 		dispatch({ type: 'EDIT_BLOG_POST', payload: { id, title, content } });
+		if (callback) {
+			callback;
+		}
 	};
 };
 
