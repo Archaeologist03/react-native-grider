@@ -1,5 +1,7 @@
-import React, { useState, useContext } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useContext } from 'react';
+import { StyleSheet } from 'react-native';
+
+import BlogPostForm from '../components/BlogPostForm';
 
 import Context from '../context/BlogContext';
 import { TextInput } from 'react-native-gesture-handler';
@@ -11,15 +13,7 @@ const EditScreen = ({ navigation }) => {
 		blogPost => blogPost.id === navigation.getParam('id'),
 	);
 
-	const [title, setTitle] = useState(blogPost.title);
-	const [content, setContent] = useState(blogPost.content);
-
-	return (
-		<View>
-			<Text>Edit title</Text>
-			<TextInput value={title} onChangeText={newTitle => setTitle(newTitle)} />
-		</View>
-	);
+	return <BlogPostForm />;
 };
 
 const styles = StyleSheet.create({});
