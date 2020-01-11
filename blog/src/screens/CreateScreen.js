@@ -7,6 +7,8 @@ const CreateScreen = ({ navigation }) => {
 	const [title, setTitle] = useState('');
 	const [content, setContent] = useState('');
 
+	const { addBlogPost } = useContex(Context);
+
 	return (
 		<View>
 			<Text style={styles.label}>Enter Title:</Text>
@@ -21,7 +23,12 @@ const CreateScreen = ({ navigation }) => {
 				value={content}
 				onChangeText={text => setContent(text)}
 			/>
-			<Button title='Add Blog post' />
+			<Button
+				title='Add Blog post'
+				onPress={() => {
+					addBlogPost(title, content);
+				}}
+			/>
 		</View>
 	);
 };
