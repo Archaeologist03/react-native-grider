@@ -8,7 +8,13 @@ import { Context } from '../context/BlogContext';
 const CreateScreen = ({ navigation }) => {
 	const { addBlogPost } = () => useContex(Context);
 
-	return <BlogPostForm />;
+	return (
+		<BlogPostForm
+			onSubmit={() => {
+				addBlogPost(title, content, navigation.navgiate('Index'));
+			}}
+		/>
+	);
 };
 const styles = StyleSheet.create({});
 
