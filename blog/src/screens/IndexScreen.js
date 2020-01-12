@@ -8,7 +8,6 @@ import {
 	TouchableOpacity,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-
 import { Context } from '../context/BlogContext';
 
 const IndexScreen = ({ navigation }) => {
@@ -16,6 +15,14 @@ const IndexScreen = ({ navigation }) => {
 
 	useEffect(() => {
 		getBlogPost();
+
+		const listener = navigation.addListener('didFocus', () => {
+			getBlogPost();
+		});
+
+		return () => {
+			listener.remove();
+		};
 	}, []);
 
 	return (
